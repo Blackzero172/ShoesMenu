@@ -26,10 +26,7 @@ class App extends React.Component {
 			this.priceInput.current,
 			this.menuRef.current,
 		];
-		let editItem = {};
-		this.state.data.forEach((item) => {
-			if (Object.values(item).includes(e.target.id)) editItem = item;
-		});
+		const editItem = this.state.data.find((item) => item.id === e.target.id);
 		this.setState({ currentItem: editItem });
 		nameInput.value = editItem.name;
 		sizeInput.value = editItem.size;
