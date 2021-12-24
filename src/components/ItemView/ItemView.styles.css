@@ -1,0 +1,20 @@
+.item-view {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	flex-direction: row;
+	background-color: #ccc;
+}
+.item-view img {
+	width: 30%;
+}
+.text-container {
+	flex-grow: 2;
+	font-size: 1.2rem;
+	margin-left: 0.75rem;
+}
+.item-view .button-container button {
+	margin: 0.5rem 0.5rem;
+	width: 50%;
+	height: 5vh;
+}

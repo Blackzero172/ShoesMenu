@@ -1,0 +1,19 @@
+.edit-input {
+	background: #ccc;
+	height: 10%;
+	width: 50%;
+	color: #333;
+	transition: border-color 0.25s ease;
+}
+.edit-input::placeholder {
+	font-size: 0.8rem;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type="number"] {
+	-moz-appearance: textfield;
+}

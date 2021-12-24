@@ -1,38 +1,126 @@
-.App {
-  text-align: center;
+.list-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+	gap: 0.25rem;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.flex-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin: 1rem 0;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.flex-container button {
+	width: 30%;
+	height: 10vh;
+	font-size: 1.5rem;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.empty-input {
+	border: 2px solid red;
 }
-
-.App-link {
-  color: #61dafb;
+button i {
+	pointer-events: none;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@media only screen and (max-width: 425px) {
+	.window {
+		width: 80%;
+	}
+	.flex-container button {
+		width: 40%;
+	}
+}
+@media only screen and (max-height: 425px) {
+	.window {
+		width: 60%;
+		height: 70vh;
+	}
+	.flex-container button {
+		width: 40%;
+	}
+}
+@media only screen and (min-width: 426px) and (min-height: 1024px) and (max-width: 768px) {
+	.window {
+		width: 80%;
+		height: 50vh;
+		font-size: 1.5rem;
+	}
+	.window .edit-input {
+		font-size: 1.5rem;
+	}
+	.window .edit-input::placeholder {
+		font-size: 1.3rem;
+	}
+	.window button {
+		width: 10%;
+		height: 5vh;
+		font-size: 1.25rem;
+	}
+	.flex-container button {
+		width: 40%;
+	}
+}
+@media only screen and (min-height: 426px) and (min-width: 1024px) and (max-height: 768px) {
+	.window {
+		width: 80%;
+		height: 70vh;
+		font-size: 1.5rem;
+	}
+	.window .edit-input {
+		font-size: 1.5rem;
+	}
+	.window .edit-input::placeholder {
+		font-size: 1.3rem;
+	}
+	.window button {
+		width: 10%;
+		height: 5vh;
+		font-size: 1.25rem;
+	}
+	.flex-container button {
+		width: 40%;
+	}
+}
+@media only screen and (min-width: 1024px) and (min-height: 1366px) {
+	.window {
+		width: 80%;
+		height: 60vh;
+		font-size: 2rem;
+	}
+	.window .edit-input {
+		font-size: 2rem;
+	}
+	.window .edit-input::placeholder {
+		font-size: 1.5rem;
+	}
+	.window button {
+		width: 10%;
+		height: 5vh;
+		font-size: 1.25rem;
+	}
+	.flex-container button {
+		width: 40%;
+		font-size: 2rem;
+	}
+}
+@media only screen and (min-height: 1024px) and (min-width: 1366px) {
+	.window {
+		width: 70%;
+		height: 80vh;
+		font-size: 2rem;
+	}
+	.window .edit-input {
+		font-size: 2rem;
+	}
+	.window .edit-input::placeholder {
+		font-size: 1.5rem;
+	}
+	.window button {
+		width: 10%;
+		height: 5vh;
+		font-size: 1.25rem;
+	}
+	.flex-container button {
+		width: 40%;
+		font-size: 2rem;
+	}
 }
