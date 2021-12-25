@@ -1,6 +1,5 @@
 import React from "react";
 import api from "../../components/API/api";
-import Spinner from "../../components/Spinner/Spinner.components";
 import ItemView from "../../components/ItemView/ItemView.components";
 import CustomInput from "../../components/CustomInput/CustomInput.components";
 import CustomButton from "../../components/CustomButton/CustomButton.components";
@@ -48,6 +47,7 @@ class EditPage extends React.Component {
 				});
 			} else if (e.target.classList.contains("cancel")) {
 				menuRef.classList.add("hidden");
+				this.clearInputs();
 			} else if (!menuRef.classList.contains("hidden")) {
 				[questionInput, answerInput].forEach((input) => {
 					if (input.value === "") {
@@ -62,7 +62,12 @@ class EditPage extends React.Component {
 			}
 		}
 	};
-
+	clearInputs = () => {
+		const [questionInput, answerInput] = [this.questionInput.current, this.answerInput.current];
+		questionInput.value = "";
+		answerInput.value = "";
+		this.setState({ currentItem: {} });
+	};
 	postItem = async (id) => {
 		const [questionInput, answerInput] = [this.questionInput.current, this.answerInput.current];
 		if (id) {
@@ -86,7 +91,7 @@ class EditPage extends React.Component {
 		this.props.getData();
 	};
 	render() {
-		const isEdit = this.state.currentItem.name === undefined;
+		const isEdit = this.state.currentItem.question === undefined;
 		return (
 			<div>
 				<div className="flex-container">

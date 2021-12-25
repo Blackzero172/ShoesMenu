@@ -11,9 +11,137 @@
 .button-container button {
 	margin: 0.5rem 1rem;
 }
-
+.answer-confirmation {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
 .hidden.answer-confirmation {
 	visibility: hidden;
 	opacity: 0;
 	position: absolute;
+}
+@media only screen and (max-height: 425px) {
+	.card {
+		width: 200px;
+		height: 200px;
+		font-size: 0.95rem;
+	}
+}
+@media only screen and (min-width: 426px) and (min-height: 1024px) and (max-width: 768px) {
+	.card {
+		width: 500px;
+		height: 500px;
+		font-size: 2rem;
+	}
+	.button-container {
+		width: 55%;
+	}
+	.button-container button {
+		width: 100%;
+		height: 5vh;
+		font-size: 1.5rem;
+	}
+	.correct-text {
+		font-size: 2rem;
+	}
+	.answer-confirmation {
+		width: 50%;
+	}
+	.answer-confirmation .answer-header {
+		font-size: 1.5rem;
+	}
+	.shuffle-btn {
+		width: 20%;
+		height: 7vh;
+		font-size: 1.5rem;
+	}
+}
+@media only screen and (min-height: 426px) and (min-width: 1024px) and (max-height: 768px) {
+	.card {
+		width: 400px;
+		height: 400px;
+		font-size: 2rem;
+	}
+	.button-container {
+		width: 55%;
+	}
+	.button-container button {
+		width: 100%;
+		height: 5vh;
+		font-size: 1.5rem;
+	}
+	.correct-text {
+		font-size: 2rem;
+	}
+	.answer-confirmation {
+		width: 50%;
+	}
+	.answer-confirmation .answer-header {
+		font-size: 1.5rem;
+	}
+	.shuffle-btn {
+		width: 20%;
+		height: 7vh;
+		font-size: 1.5rem;
+	}
+}
+@media only screen and (min-width: 1024px) and (min-height: 1366px) {
+	.card {
+		width: 600px;
+		height: 600px;
+		font-size: 2rem;
+	}
+	.button-container {
+		width: 55%;
+	}
+	.button-container button {
+		width: 100%;
+		height: 5vh;
+		font-size: 1.5rem;
+	}
+	.correct-text {
+		font-size: 2rem;
+	}
+	.answer-confirmation {
+		width: 50%;
+	}
+	.answer-confirmation .answer-header {
+		font-size: 1.5rem;
+	}
+	.shuffle-btn {
+		width: 20%;
+		height: 7vh;
+		font-size: 1.5rem;
+	}
+}
+@media only screen and (min-height: 1024px) and (min-width: 1366px) {
+	.card {
+		width: 600px;
+		height: 600px;
+		font-size: 2rem;
+	}
+	.button-container {
+		width: 55%;
+	}
+	.button-container button {
+		width: 100%;
+		height: 5vh;
+		font-size: 1.5rem;
+	}
+	.correct-text {
+		font-size: 2rem;
+	}
+	.answer-confirmation {
+		width: 50%;
+	}
+	.answer-confirmation .answer-header {
+		font-size: 1.5rem;
+	}
+	.shuffle-btn {
+		width: 20%;
+		height: 7vh;
+		font-size: 1.5rem;
+	}
 }

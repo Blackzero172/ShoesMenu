@@ -7,7 +7,9 @@ import Header from "./components/Header/Header.components";
 import api from "./components/API/api";
 class App extends React.Component {
 	state = { loading: true, cards: [], completed: 0, currentCard: {} };
+	cardRef = React.createRef();
 	spinnerRef = React.createRef();
+	firstLoadUp = false;
 	showHideSpinner = () => {
 		if (this.state.loading) this.spinnerRef.current.classList.remove("hidden");
 		else if (!this.state.loading) this.spinnerRef.current.classList.add("hidden");
@@ -17,21 +19,26 @@ class App extends React.Component {
 		const res = await api.get();
 		this.setState({ loading: false, cards: res.data }, () => {
 			this.showHideSpinner();
-			this.getNewCard();
+			if (!this.firstLoadUp) {
+				this.getNewCard();
+				this.firstLoadUp = true;
+			}
 		});
 	};
 	getNewCard = () => {
-		const filteredCards = this.state.cards.filter((card) => card.isAnswered === false);
-		if (filteredCards.length > 1) {
-			let randomNum = Math.floor(Math.random() * filteredCards.length);
-			let randomCard = filteredCards[randomNum];
-			if (randomCard === this.state.currentCard) {
-				randomNum = Math.floor(Math.random() * filteredCards.length);
-				randomCard = this.state.cards[randomNum];
-			} else {
-				this.setState({ currentCard: randomCard });
+		if (this.cardRef.current !== null)
+			if (!this.cardRef.current.classList.contains("flipped")) {
+				const filteredCards = this.state.cards.filter((card) => card.isAnswered === false);
+				if (filteredCards.length > 0) {
+					let randomNum = Math.floor(Math.random() * filteredCards.length);
+					let randomCard = filteredCards[randomNum];
+					while (randomNum === filteredCards.indexOf(this.state.currentCard)) {
+						randomNum = Math.floor(Math.random() * filteredCards.length);
+						randomCard = filteredCards[randomNum];
+					}
+					this.setState({ currentCard: randomCard });
+				}
 			}
-		}
 	};
 	componentDidMount() {
 		this.getData();
@@ -47,6 +54,13 @@ class App extends React.Component {
 	setLoading = () => {
 		this.setState({ loading: true }, this.showHideSpinner);
 	};
+	shuffleCards = () => {
+		const cards = this.state.cards;
+		cards.forEach((card) => {
+			card.isAnswered = false;
+		});
+		this.setState({ cards, completed: 0 });
+	};
 	render() {
 		return (
 			<BrowserRouter>
@@ -61,6 +75,8 @@ class App extends React.Component {
 						onConfirm={this.confirmAnswer}
 						onNewCard={this.getNewCard}
 						currentCard={this.state.currentCard}
+						onShuffle={this.shuffleCards}
+						cardRef={this.cardRef}
 					/>
 				</Route>
 				<Spinner spinnerRef={this.spinnerRef} />
