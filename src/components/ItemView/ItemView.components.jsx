@@ -1,16 +1,15 @@
 import React from "react";
 import CustomButton from "../CustomButton/CustomButton.components";
 import "./ItemView.styles.css";
-import Logo from "../../assets/imgs/LogoShoe.png";
 const ItemView = ({ item, deleteItem, editItem }) => {
-	const { name, size, price, id } = item;
+	const { question, answer, id } = item;
 	return (
 		<div style={{ border: "3px solid black" }} className="item-view">
-			<img src={Logo} alt="Logo" />
 			<div className="text-container">
-				<h3>Brand: {name}</h3>
-				<p>Shoe Size: {size}</p>
-				<p>Shoe Price: {price}$</p>
+				<h3>Question:</h3>
+				<p>{question}</p>
+				<h3>Answer:</h3>
+				<p>{answer}</p>
 				<p>ID: {id}</p>
 			</div>
 			<div className="button-container">
